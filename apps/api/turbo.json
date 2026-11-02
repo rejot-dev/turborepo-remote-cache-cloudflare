@@ -1,0 +1,21 @@
+{
+  "$schema": "../../node_modules/turbo/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["$TURBO_EXTENDS$", "@turborepo-remote-cache/dashboard#build"],
+      "env": ["NITRO_*", "SERVER_PRESET"],
+      "inputs": ["$TURBO_EXTENDS$", "!tests/**", "!e2e/**"],
+      "outputs": [".output/**", ".wrangler/deploy/config.json"]
+    },
+    "test": {
+      "env": ["CONTRACT_BASE_URL"],
+      "inputs": ["$TURBO_EXTENDS$", "!e2e/**"]
+    },
+    "test:e2e": {
+      "description": "Runs the contract tests and real turbo builds against the built Worker under wrangler dev.",
+      "dependsOn": ["build"],
+      "cache": false
+    }
+  }
+}

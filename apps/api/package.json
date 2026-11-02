@@ -1,0 +1,40 @@
+{
+  "name": "@turborepo-remote-cache/api",
+  "version": "5.2.0",
+  "private": true,
+  "description": "A Turborepo remote cache server for Cloudflare Workers and any Nitro deployment target",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "codegen": "wrangler types",
+    "codegen:check": "wrangler types --check",
+    "deploy": "wrangler deploy",
+    "dev": "vite dev",
+    "preview": "wrangler dev --port 8787 --var TURBO_TOKEN:test-token",
+    "start": "node .output/server/index.mjs",
+    "test": "vitest run --coverage",
+    "test:e2e": "bash e2e/run.sh",
+    "test:watch": "vitest",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@turborepo-remote-cache/files-sdk-kv": "workspace:*",
+    "files-sdk": "3.1.2",
+    "nitro": "3.0.261029-rc",
+    "valibot": "^1.5.0"
+  },
+  "devDependencies": {
+    "@turborepo-remote-cache/dashboard": "workspace:*",
+    "@turborepo-remote-cache/spec": "workspace:*",
+    "@types/node": "^24.19.2",
+    "@vitest/coverage-istanbul": "^5.0.5",
+    "db0": "^0.4.2",
+    "miniflare": "5.20261023.3-beta",
+    "srvx": "^1.0.8",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.156.0"
+  }
+}

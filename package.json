@@ -1,0 +1,59 @@
+{
+  "name": "turborepo-remote-cache-cloudflare",
+  "private": true,
+  "description": "An implementation of the turborepo-remote-cache server custom made for Cloudflare Workers",
+  "keywords": [
+    "cloudflare-r2",
+    "cloudflare-workers",
+    "remote-caching",
+    "serverless",
+    "turborepo",
+    "vercel"
+  ],
+  "homepage": "https://github.com/AdiRishi/turborepo-remote-cache-cloudflare",
+  "bugs": {
+    "url": "https://github.com/AdiRishi/turborepo-remote-cache-cloudflare/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Adishwar Rishi",
+    "email": "adiswa123@gmail.com",
+    "url": "https://github.com/AdiRishi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdiRishi/turborepo-remote-cache-cloudflare.git"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "dotenv -e .env.turbo.local -- turbo run build",
+    "check": "dotenv -e .env.turbo.local -- turbo run lint typecheck test build",
+    "codegen": "pnpm --recursive run codegen",
+    "codegen:check": "pnpm --recursive run codegen:check",
+    "deploy": "pnpm --filter @turborepo-remote-cache/api run deploy",
+    "dev": "dotenv -e .env.turbo.local -- turbo run dev",
+    "docs:preview": "pnpm --filter @turborepo-remote-cache/docs run preview",
+    "format": "oxfmt .",
+    "lint": "oxlint && oxfmt --check .",
+    "lint:fix": "oxlint --fix && oxfmt .",
+    "preview": "pnpm --filter @turborepo-remote-cache/api run preview",
+    "spec:sync": "pnpm --filter @turborepo-remote-cache/spec run sync",
+    "start": "pnpm --filter @turborepo-remote-cache/api run start",
+    "test": "dotenv -e .env.turbo.local -- turbo run test",
+    "test:e2e": "dotenv -e .env.turbo.local -- turbo run test:e2e",
+    "typecheck": "dotenv -e .env.turbo.local -- turbo run typecheck"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "dotenv-cli": "^11.1.0",
+    "oxfmt": "^0.75.0",
+    "oxlint": "^1.90.0",
+    "oxlint-tsgolint": "^7.0.2005",
+    "turbo": "^2.11.10"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.16.1"
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["./worker-configuration.d.ts", "node"]
+  },
+  "include": ["src", "tests", "e2e", "nitro.config.ts", "vite.config.ts"]
+}
